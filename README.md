@@ -1,18 +1,18 @@
-# Etethető Csontváz — Anatomy Lab v0.4.0
+# Etethető Csontváz — Anatomy Lab v0.4.1
 
-## Újdonságok
-- Új, látványos főmenü a tervhez igazított sötétkék/cian színvilággal.
-- Kiemelt **Játék indítása** gomb.
-- Külön Felfedezés, Kvíz és Tudtad? csempék.
-- Telepítés, QR-kódos megosztás és Beállítások elérhető a főmenüből.
-- Működő emésztési útvonal-szimuláció, szervismertetők és 5 kérdéses kvíz.
-- PWA manifest, offline cache és alkalmazásikonok.
+## Javítások
+- PWA manifest szabványos PNG ikonokkal (192×192 és 512×512), hogy a Chrome felismerhesse telepíthető alkalmazásként.
+- Service Worker cache-verzió frissítve; opcionális fájl hiánya nem szakítja meg a telepítést.
+- Telepítés gomb és Android/iOS útmutató.
+- QR-kódos megosztás a főmenüben, a játékban és a felső sávban.
 
-## Vercel frissítése
-1. Cseréld le a GitHub-repóban a projekt fájljait a csomagban lévőkre.
-2. Commitold a módosításokat; a Vercel automatikusan új deployt indít.
-3. A telefonon nyisd meg a Vercel HTTPS-címét, frissítsd az oldalt, és ha a régi verziót látod, zárd be teljesen a telepített/böngészős példányt, majd nyisd meg újra.
-4. A QR-kód a megnyitott nyilvános URL-t kódolja. A QR-képhez külső QR-szolgáltatás szükséges.
+## Fontos: Vercel-frissítés
+A böngészős képernyőkép alapján a Chrome azt írja, hogy „Ez az alkalmazás nem telepíthető”, ezért az előző build nem teljesítette a telepíthetőség feltételeit. Ez a csomag javítja a PWA manifestet, PNG ikonokat és a Service Workert, de a valódi sikerhez friss deploy szükséges.
 
-## Fontos
-A csontváz és a szervek jelenleg CSS-alapú szemléltető illusztrációk, nem anatómiai pontosságú 3D modell. A további szervrendszerek menüpontjai jelzik a jövőbeli fejlesztést. A projektet a közzétett Vercel URL-en is tesztelni kell.
+1. Cseréld le a GitHub repóban a projekt fájljait ezekre, a mappaszerkezet megtartásával.
+2. Commit/push után várd meg a sikeres Vercel Deploy-t.
+3. A Chrome-ban nyisd meg a Vercel URL-t. Frissítsd az oldalt; ha továbbra is régi verzió látszik, zárd be a fület, nyisd meg újra, és próbáld meg a Chrome ⋮ menüben.
+4. A telepítés feltételei: HTTPS, érvényes manifest, megfelelő ikonok és működő Service Worker. A Chrome telepítési felülete eszköz- és böngészőverzió-függő.
+5. A QR-kód a publikus Vercel URL-t kódolja. A QR-kép külső szolgáltatással készül, ezért internetkapcsolat szükséges hozzá.
+
+A forráscsomag elkészült, de az élő Vercel-oldal deployját és eszközön történő telepítését innen nem tudom helyetted végrehajtani.
