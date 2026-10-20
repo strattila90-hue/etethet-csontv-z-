@@ -1,33 +1,29 @@
 # Etethető Csontváz — Anatomy Lab
 
-Magyar nyelvű, mobilbarát oktatási webapp prototípus, új GitHub-repóhoz és Vercelhez előkészítve.
+**Verzió:** 0.2.0 · **Nyelv:** magyar · **Típus:** statikus webalkalmazás / PWA-alap
 
-## Futtatás
-A projekt statikus weboldal, nincs szükség build parancsra vagy csomagtelepítésre. Nyisd meg az `index.html` fájlt, vagy futtass helyi statikus webszervert. A Service Worker csak HTTP(S) környezetben regisztrál.
+## Mit tartalmaz?
+- Reszponzív, sötétkék kezelőfelület a megadott látványterv alapján
+- Ételválasztó és időzített, öt szakaszból álló emésztési szemléltetés
+- Szervcímkékre kattintva megnyíló ismertetők
+- Érdekességek, szakaszonkénti magyarázatok és folyamatjelzők
+- 8 kérdéses emésztőrendszer-kvíz pontozással és visszajelzéssel
+- Szervrendszer-választó alapismertetőkkel
+- PWA manifest és Service Worker gyorsítótárazással
+
+## Helyi futtatás
+Nincs build vagy npm-függőség. A PWA/offline funkció teszteléséhez HTTP(S) szerver szükséges. Például: `python -m http.server 8080`, majd `http://localhost:8080`.
+
+## GitHub
+1. Hozz létre egy üres, `etethető-csontvaz-anatomy-lab` nevű repositoryt.
+2. Csomagold ki a ZIP-et, töltsd fel a benne lévő fájlokat a repó gyökerébe.
+3. Commitold a fájlokat a `main` ágra.
 
 ## Vercel
-- Framework Preset: **Other**
-- Build Command: üres
-- Output Directory: `.`
-- Install Command: üres
+Importáld a GitHub-repót a Vercelbe. Framework Preset: **Other**; Build Command és Install Command: üres; Output Directory: `.`. A deploy után ellenőrizd a webcímet mobilon is.
 
-## Fájlok
-- `index.html` — képernyőszerkezet
-- `styles.css` — reszponzív sötétkék felület
-- `app.js` — etetés, szakaszok, szervismertetők, érdekességek
-- `data.json` — adatvezérelt tartalom kiindulópontja
-- `manifest.webmanifest` — PWA-metaadatok
-- `sw.js` — statikus erőforrások gyorsítótárazása
+## Őszinte állapotjelentés
+Ez egy működő kezdeti prototípus, nem teljesen azonos a referencia-képpel. A test és a szervek CSS-alapú szemléltető illusztrációk, nem anatómiai pontosságú 3D modell. A további szervrendszerekhez ismertető tartozik, de még nincs külön részletes ábrájuk. A PWA/offline működést valódi böngészőben tesztelni kell. GitHubra feltöltés és Vercel-deploy még nem történt, mert ebben a munkamenetben nincs csatlakoztatott GitHub/Vercel műveleti hozzáférés.
 
-## Állapot és fontos korlátok
-Ez **0.1.0 prototípus**, nem végleges kiadás. A csontváz és szervek most CSS-alapú szemléltető illusztrációk, nem anatómiai pontosságú 3D modell. A navigáció, kvíz és további szervrendszerek egy része jelenleg jelzés/placeholder. A következő fázisban ezeket a célzott látványtervhez kell finomítani, és a böngészőkben tesztelni.
-
-## Következő fejlesztési ellenőrzőlista
-- [ ] Részletes, rétegezett anatómiai SVG vagy megfelelő licencű illusztráció
-- [ ] Kvíz tényleges kérdésbankkal, pontozással és újrapróbálással
-- [ ] Minden menüpont valós funkcióval
-- [ ] A teljes emésztési animáció mobilon és asztali böngészőben tesztelve
-- [ ] Offline indulás és frissítési stratégia ellenőrzése
-- [ ] Akadálymentesség: billentyűzet, fókusz, kontraszt, ARIA
-- [ ] Biológiai tartalom szakmai ellenőrzése
-- [ ] GitHub és Vercel telepítés tényleges ellenőrzése
+## Következő lépés
+Részletes rétegezett anatómiai SVG/illusztráció, minden menüpont véglegesítése, mobilos és akadálymentességi tesztelés, szakmai biológiai ellenőrzés.

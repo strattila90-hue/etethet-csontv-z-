@@ -1,4 +1,4 @@
-const CACHE_NAME="etethető-csontvaz-v0.1.0";
+const CACHE_NAME="etethető-csontvaz-v0.2.0";
 const ASSETS=["./","./index.html","./styles.css","./app.js","./data.json","./manifest.webmanifest"];
 self.addEventListener("install",event=>event.waitUntil(caches.open(CACHE_NAME).then(cache=>cache.addAll(ASSETS))));
 self.addEventListener("activate",event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE_NAME).map(key=>caches.delete(key))))));
