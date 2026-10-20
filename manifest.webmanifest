@@ -1,10 +1,31 @@
 {
+  "id": "./",
   "name": "Etethető Csontváz — Anatomy Lab",
   "short_name": "Etethető Csontváz",
-  "lang": "hu",
+  "description": "Interaktív magyar nyelvű anatómiai tanulóalkalmazás.",
+  "lang": "hu-HU",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "any",
   "background_color": "#061326",
   "theme_color": "#08182c",
-  "description": "Interaktív emésztőrendszer-tanuló alkalmazás."
+  "categories": [
+    "education",
+    "games"
+  ],
+  "icons": [
+    {
+      "src": "./icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
 }
