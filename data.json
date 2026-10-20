@@ -1,0 +1,35 @@
+{
+  "app": {
+    "name": "Etethető Csontváz",
+    "version": "0.1.0",
+    "language": "hu"
+  },
+  "stages": [
+    {
+      "id": "mouth",
+      "name": "Szájüreg",
+      "description": "Rágás, nyál és falatképzés."
+    },
+    {
+      "id": "esophagus",
+      "name": "Nyelőcső",
+      "description": "Perisztaltikus mozgás továbbítja a falatot."
+    },
+    {
+      "id": "stomach",
+      "name": "Gyomor",
+      "description": "Savas közeg és enzimek segítik a bontást."
+    },
+    {
+      "id": "smallIntestine",
+      "name": "Vékonybél",
+      "description": "A tápanyagok nagy része itt szívódik fel."
+    },
+    {
+      "id": "largeIntestine",
+      "name": "Vastagbél",
+      "description": "Víz és elektrolitok visszaszívása."
+    }
+  ],
+  "note": "A data.json a későbbi adatvezérelt bővítés kiindulópontja."
+}

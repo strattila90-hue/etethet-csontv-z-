@@ -1,0 +1,10 @@
+{
+  "name": "Etethető Csontváz — Anatomy Lab",
+  "short_name": "Etethető Csontváz",
+  "lang": "hu",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#061326",
+  "theme_color": "#08182c",
+  "description": "Interaktív emésztőrendszer-tanuló alkalmazás."
+}

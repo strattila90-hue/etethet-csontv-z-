@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08182c">
+  <meta name="description" content="Interaktív, magyar nyelvű emésztőrendszer-tanuló alkalmazás.">
+  <title>Etethető Csontváz — Anatomy Lab</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Etethető Csontváz főoldal">
+      <span class="brand-mark">🦴</span><span><strong>Etethető Csontváz</strong><small>Ismerd meg, mi történik az étellel a testedben!</small></span>
+    </a>
+    <nav class="topnav" aria-label="Fő navigáció">
+      <button class="nav-btn active" data-view="home">⌂ <span>Főoldal</span></button>
+      <button class="nav-btn" data-view="feed">🍎 <span>Etetés</span></button>
+      <button class="nav-btn" data-view="explore">⌕ <span>Felfedezés</span></button>
+      <button class="nav-btn" data-view="quiz">🏆 <span>Kvíz</span></button>
+      <button class="nav-btn" data-view="facts">💡 <span>Tudtad?</span></button>
+    </nav>
+    <button id="settingsBtn" class="settings-btn" aria-label="Beállítások" title="Beállítások">⚙</button>
+  </header>
+
+  <main class="app-grid">
+    <aside class="systems panel">
+      <h2>Felfedezés</h2>
+      <button class="system-btn selected" data-system="digestive">🫃 <span>Emésztőrendszer</span></button>
+      <button class="system-btn" data-system="skeleton">💀 <span>Csontváz</span></button>
+      <button class="system-btn" data-system="respiratory">🫁 <span>Légzőrendszer</span></button>
+      <button class="system-btn" data-system="circulatory">❤️ <span>Keringési rendszer</span></button>
+      <button class="system-btn" data-system="urinary">🫘 <span>Kiválasztó rendszer</span></button>
+      <button class="system-btn" data-system="nervous">🧠 <span>Agy és idegrendszer</span></button>
+      <button class="system-btn" data-system="muscular">💪 <span>Izomrendszer</span></button>
+      <p class="side-note">Válassz egy rendszert, majd koppints a megjelölt szervekre!</p>
+    </aside>
+
+    <section class="feed-panel panel" id="feedPanel">
+      <div class="panel-heading"><div><p class="eyebrow">INTERAKTÍV SZIMULÁCIÓ</p><h2>Etess meg!</h2></div><span class="live-dot">● élő modell</span></div>
+      <p class="muted">Válassz ételt, és figyeld meg az útját a testen keresztül.</p>
+      <div id="foodGrid" class="food-grid" aria-label="Választható ételek"></div>
+      <div class="feed-actions">
+        <button id="startFeed" class="primary-btn">▶ Etetés indítása</button>
+        <button id="resetFeed" class="secondary-btn">↺ Újrakezdés</button>
+      </div>
+      <div class="simulation-status">
+        <div class="status-top"><strong id="statusTitle">Készen állunk</strong><span id="stageCounter">0 / 5. szakasz</span></div>
+        <div class="progress"><span id="progressBar"></span></div>
+        <p id="statusText">Válassz egy ételt a kezdéshez!</p>
+      </div>
+    </section>
+
+    <section class="anatomy panel" aria-label="Interaktív anatómiai modell">
+      <div class="anatomy-top"><span class="tag">ANATÓMIAI NÉZET</span><button id="labelsToggle" class="small-btn">Feliratok elrejtése</button></div>
+      <div class="body-model" id="bodyModel">
+        <div class="skeleton-art" aria-hidden="true">
+          <div class="skull"><div class="eye left"></div><div class="eye right"></div><div class="nose"></div><div class="jaw"></div></div>
+          <div class="neck"></div>
+          <div class="ribcage"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="spine"></div><div class="pelvis"></div>
+          <div class="arm arm-left"></div><div class="arm arm-right"></div>
+          <div class="leg leg-left"></div><div class="leg leg-right"></div>
+        </div>
+        <div class="organ esophagus" data-organ="esophagus"></div>
+        <div class="organ stomach" data-organ="stomach"></div>
+        <div class="organ liver" data-organ="liver"></div>
+        <div class="organ small-intestine" data-organ="smallIntestine"></div>
+        <div class="organ large-intestine" data-organ="largeIntestine"></div>
+        <button class="organ-label label-mouth" data-organ="mouth">Szájüreg</button>
+        <button class="organ-label label-esophagus" data-organ="esophagus">Nyelőcső</button>
+        <button class="organ-label label-stomach" data-organ="stomach">Gyomor</button>
+        <button class="organ-label label-small" data-organ="smallIntestine">Vékonybél</button>
+        <button class="organ-label label-large" data-organ="largeIntestine">Vastagbél</button>
+        <div id="foodParticle" class="food-particle" hidden>🍎</div>
+      </div>
+      <div class="anatomy-caption"><span class="pulse"></span> Koppints egy szerv nevére a részletekért</div>
+    </section>
+
+    <aside class="right-column">
+      <section class="journey panel">
+        <h2>Az étel útja</h2><p class="muted">Válassz egy szakaszt, és tudj meg többet!</p>
+        <div id="stageList" class="stage-list"></div>
+      </section>
+      <section class="current panel">
+        <h2>Éppen itt jár az étel</h2>
+        <div class="current-content"><div id="stageIllustration" class="stage-illustration">🍽️</div><div><h3 id="currentStageTitle">Kezdjük az elején!</h3><p id="currentStageText">Az emésztés a szájüregben kezdődik.</p></div></div>
+        <div class="progress-row"><div class="progress"><span id="rightProgress"></span></div><span id="rightCounter">0 / 5</span></div>
+      </section>
+      <section class="fact-card panel">
+        <div class="fact-icon">💡</div><div><h2>Tudtad?</h2><p id="factText">A gyomor falát nyálkaréteg védi a savas gyomornedvtől.</p><button id="nextFact" class="text-btn">Következő érdekesség →</button></div>
+      </section>
+    </aside>
+  </main>
+
+  <dialog id="infoDialog" class="info-dialog"><button class="dialog-close" id="closeDialog" aria-label="Bezárás">×</button><p class="eyebrow">SZERVISMERTETŐ</p><h2 id="dialogTitle">Szerv</h2><p id="dialogText"></p><div id="dialogExtra" class="dialog-extra"></div></dialog>
+  <dialog id="settingsDialog" class="info-dialog"><button class="dialog-close" id="closeSettings" aria-label="Bezárás">×</button><p class="eyebrow">BEÁLLÍTÁSOK</p><h2>Alkalmazás</h2><p>Ez az első helyi prototípus. A beállítások és az offline működés a következő fejlesztési körben bővíthetők.</p><p class="muted">Verzió: 0.1.0 · Anatomy Lab</p></dialog>
+  <footer><span>Etethető Csontváz · Anatomy Lab</span><span>Oktatási célú, szemléltető modell</span></footer>
+  <script src="./app.js" defer></script>
+</body>
+</html>
